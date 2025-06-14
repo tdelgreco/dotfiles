@@ -1,0 +1,15 @@
+[Default Applications]
+image/png=feh.desktop
+image/jpeg=feh.desktop
+text/html=brave-browser.desktop
+x-scheme-handler/http=brave-browser.desktop
+x-scheme-handler/https=brave-browser.desktop
+x-scheme-handler/about=brave-browser.desktop
+x-scheme-handler/unknown=brave-browser.desktop
+application/pdf=mupdf.desktop
+x-scheme-handler/tonsite=org.telegram.desktop.desktop
+
+[Added Associations]
+image/png=feh.desktop;
+image/jpeg=feh.desktop;
+x-scheme-handler/tonsite=org.telegram.desktop.desktop;
