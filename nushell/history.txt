@@ -1,0 +1,149 @@
+ls
+ll
+ps
+nushell
+ps
+ls
+tldr nu
+help
+ls
+ls | sort-by size
+ls | sort-by size | reverse
+cd documents/
+ls | sort-by size | reverse
+ls | sort-by size
+ps | bat
+ps | where name = kitty
+ps | where name == kitty
+^ps aux
+ps aux
+ps
+^ps 
+ps status == Running
+ps | where status == Running
+ps | where status == running
+ps | where status == Running
+ls
+ls | first
+stat richmodent/
+ls | sort-by size | reverse | first | get name 
+ls --help
+rsync --help
+ls --help
+help operators 
+help escapes 
+help operators 
+help --find filesize
+help -f filesize
+cd dertour.de/
+ll
+ls
+la
+ps
+whoami
+help command
+help commands
+help commands | bat
+help commands | less
+help commands | explore 
+version 
+ls
+nvim ~/.config/nushell/config.nu
+ls
+fastfetch 
+ps | where status == Running
+ll -a
+ll -la
+ll
+la
+ll
+ls -l
+ll
+eza 
+ll
+ll | select name, mode
+ll | select name
+ll | select name,mode
+ll | select name mode
+ll
+ll | select name mode size 
+ll | select mode size name
+ll 
+ll | sort-by name | select mode size name
+ll | sort-by size | select mode size name
+ll | sort-by name | select mode size name
+ls | sort-by name | select mode size name
+ls 
+cd documents/
+ls
+ls 
+ls | sort-by name | select mode size name
+ls | sort-by name | select size name
+la
+ls | sort-by name | select mode size name
+ls | select mode
+^ls 
+cd ..
+ls
+cd tmp/
+ls
+ll
+la
+la | sort-by name | select mode size name
+ps
+ps | where user == 'tom'
+ps | where user == "tom"
+ps aus | where user == "tom"
+ps aux | where user == "tom"
+ps -aux
+ps
+^ps aux
+ps
+yazi
+cd .config/nushell/
+vscodium .
+ps
+ps | where name == "cal"
+ps | where name == "cal*"
+ps | where name == "z*"
+ps | where name == "z"
+ps | where name == "*z*"
+ps | where name != "*z*"
+ps | where name != "zs*"
+ps | where name = "z"
+ps | where name =~ "z"
+ps | where name =~ "cal"
+ps | where name =~ "c"
+ps | where name =~ "ca"
+ps | where name =~ "cl"
+cd z
+ls
+ps
+ps | where name =~ "cl" | first 5
+ps | where name =~ "brave" | first 5
+ps | whre name == brave
+ps | whre name == 'brave'
+ps | whre name == "brave"
+ps | where name == brave
+ps | where name =~ brave
+ps | where name =~ brav
+ps | where name =~ br
+ps | where name =~ bra
+ps | where name =~ bra | sort-by mem
+ps | where name =~ bra | sort-by mem --reverse 
+ps | where name =~ bra | sort-by mem --reverse | first  5
+ps | where name =~ bra | sort-by mem --reverse | first  1
+ps | where name =~ bra | sort-by mem --reverse | first 1
+ps | where cpu > 10
+ps | where cpu , 10
+ps | where cpu < 10
+ps | where cpu > 9
+ps | where cpu > 3
+ps | where cpu > 2
+ps | where cpu > 1
+$in
+du
+du mnt/
+du code/
+cd .config/
+git st

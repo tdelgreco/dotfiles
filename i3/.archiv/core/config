@@ -1,0 +1,157 @@
+set $mod Mod4
+set $bgcolor #08aef6
+set $ibgcolor #363636
+set $textcolor #ffffff
+set $ubgcolor #ff0000
+set $ws1 "1:"
+set $ws2 "2:"
+set $ws3 "3:"
+set $ws4 "4:"
+set $ws5 "5:"
+
+# Window border
+default_border pixel 2
+default_floating_border normal
+
+# Name                    border      background    text          indicator
+client.focused            $bgcolor    $bgcolor      $textcolor    $bgcolor
+client.unfocused          $ibgcolor   $ibgcolor     $textcolor    $ibgcolor
+client.focused_inactive   $ibgcolor   $ibgcolor     $textcolor    $ibgcolor
+client.urgent             $ubgcolor   $ubgcolor     $textcolor    $ubgcolor
+
+gaps inner 12
+gaps outer -2
+hide_edge_borders none
+font pango:monospace 12
+focus_follows_mouse no
+floating_modifier $mod
+
+bindsym $mod+u border none
+bindsym $mod+y border pixel 2
+bindsym $mod+n border normal
+
+bindsym $mod+Control+Up exec amixer set Master -q 5%+
+bindsym $mod+Control+Down exec amixer set Master -q 5%-
+
+bindsym $mod+Shift+q kill
+bindsym $mod+Left focus left
+bindsym $mod+Right focus right
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+bindsym $mod+h split v
+bindsym $mod+Control+h split h
+bindsym $mod+f fullscreen toggle
+
+bindsym $mod+Shift+space floating toggle
+bindsym $mod+space focus mode_toggle
+
+bindsym $mod+a focus parent
+bindsym $mod+Shift+a focus child
+bindsym $mod+Shift+c reload
+bindsym $mod+Shift+r restart
+
+bindsym $mod+1 workspace number $ws1
+bindsym $mod+2 workspace number $ws2
+bindsym $mod+3 workspace number $ws3
+bindsym $mod+4 workspace number $ws4
+bindsym $mod+5 workspace number $ws5
+
+bindsym $mod+Shift+1 move container to workspace number $ws1
+bindsym $mod+Shift+2 move container to workspace number $ws2
+bindsym $mod+Shift+3 move container to workspace number $ws3
+bindsym $mod+Shift+4 move container to workspace number $ws4
+bindsym $mod+Shift+5 move container to workspace number $ws5
+
+bindsym $mod+Control+Left workspace prev
+bindsym $mod+Control+Right workspace next
+
+bindsym $mod+Return exec terminator
+bindsym $mod+Print exec gnome-screenshot -i
+bindsym $mod+Control+l exec betterlockscreen -l dim
+bindsym $mod+d exec --no-startup-id rofi -show
+
+# Use pactl to adjust volume in PulseAudio.
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status:
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
+bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
+
+# MODE: System lock, reboot and poweroff 
+set $mode_system [L]ock, L[o]gout [R]eboot, [P]oweroff
+mode "$mode_system" {
+    bindsym l exec --no-startup-id i3exit lock, mode "default"
+    bindsym o exec --no-startup-id i3exit logout, mode "default"
+    bindsym r exec --no-startup-id i3exit reboot, mode "default"
+    bindsym p exec --no-startup-id i3exit shutdown, mode "default"
+
+    # exit system mode: "Enter" or "Escape"
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+0 mode "$mode_system"
+
+# MODE: Application launcher
+set $mode_launcher Launch: [f]irefox [t]hunderbird
+mode "$mode_launcher" {
+    bindsym f exec firefox
+    bindsym t exec thunderbird
+
+    bindsym Escape mode "default"
+    bindsym Return mode "default"
+}
+bindsym $mod+o mode "$mode_launcher"
+
+# MODE: Resize window
+mode "resize" {
+        # These bindings trigger as soon as you enter the resize mode
+        
+		# same bindings, but for the arrow keys
+        bindsym Left resize shrink width 10 px or 10 ppt
+        bindsym Down resize grow height 10 px or 10 ppt
+        bindsym Up resize shrink height 10 px or 10 ppt
+        bindsym Right resize grow width 10 px or 10 ppt
+
+        # back to normal: Enter or Escape or $mod+r
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+        bindsym $mod+r mode "default"
+}
+bindsym $mod+r mode "resize"
+
+
+# [AUTO-START]
+exec_always --no-startup-id feh --bg-fill $HOME/Pictures/backgrounds/display1_1.jpg
+#exec_always --no-startup-id feh --bg-fill $HOME/Pictures/backgrounds/display1_1.jpg $HOME/Pictures/backgrounds/display2.jpg $HOME/Pictures/backgrounds/display3.jpg
+exec_always --no-startup-id picom -f --experimental-backends --blur-method=dual_kawase &
+exec_always --no-startup-id imwheel -b 45
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+exec_always --no-startup-id setxkbmap de
+
+exec --no-startup-id numlockx on
+exec --no-startup-id nm-applet
+exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+exec --no-startup-id setxkbmap -layout de &
+exec --no-startup-id mullvad-vpn &
+
+# [ASSIGN]
+assign [class="Brave-browser"] $ws3
+assign [class="com.sayonara-player.Sayonara"] $ws3
+assign [class="Thunderbird"] $ws3
+assign [class="Minecraft Launcher"] $ws2
+assign [class="Virt-viewer"] $ws3
+
+# [Floating Window]
+for_window [class="steam"] floating enable
+for_window [class="KeePassXC"] move to workspace $ws3 floating enable, resize set 1280 800, position center
+
+# Info: Find Application name with xprop

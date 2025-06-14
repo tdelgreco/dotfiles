@@ -1,0 +1,10 @@
+export EDITOR=micro
+export VISUAL=micro
+export HISTFILE="$HOME/.config/zsh/.zsh_history"
+export HISTORY_IGNORE="(bat|cls|cd|pwd|exit|sudo reboot|history|cd -|cd ..)"
+export PASSWORD_STORE_CLIP_TIME=15
+export LESS='-R --use-color -Dd+r$Du+b$'
+export TERM=xterm-256color
+export NU_CONFIG_PATH="$HOME/.config/nushell/confi.nu"
+export NU_ENV_PATH="$HOME/.config/nushell/env.nu"
+export PATH=$PATH:/usr/local/nushell/bin

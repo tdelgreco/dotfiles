@@ -1,0 +1,244 @@
+ls
+ps
+ssh 
+ssh ps1
+ls
+cd documents/
+ls
+ls | where type == file
+ls | where type == dir
+date
+date now
+date
+calc
+dat to-table
+date to-table
+date
+date now 
+date now | date to-table 
+date now | date to-timezone 
+date now | date to-record 
+ls
+ip a
+ip
+gstat
+ls | histogram type freq
+ls
+ls | histogram type 
+'hello to the world' | split words --min-word-length 3
+plugin list
+ls
+ls -la
+ls -l
+ls -la
+cd .config/
+ls
+cd nushell/
+ls
+nu config
+ls
+plugin list 
+plugin add
+z config
+ls
+cd config
+cd ~\.config
+cd ..
+ls
+cd .config/
+ls
+cd nushell/
+ls
+pkill picom
+help
+ls
+cd ~
+ls
+help
+ls | sort-by modified
+ls
+help
+$nu.plugin-path
+$nu.home-path
+$nu.startup-time
+$nu.config-path
+$nu.default-config-dir
+$nu.plugin-path
+cat /etc/shells
+code .
+vscodium .
+ls
+ps
+history -l
+plugin list 
+yazi
+yazi
+ls
+ps
+ls
+$nu.default-config-dir
+ls $nu.default-config-dir
+config nu
+ls | sort-by modifie
+exit
+ls | sort-by modifie
+history 
+ls
+ls code/
+ls .config/
+ls
+yazi 
+keybindings list 
+keybindings listen
+config env 
+help keybindings
+keybindings -h
+keybindings list | where type == events
+ls
+ps
+help keybindings
+keybindings
+keybindings --help
+keybindings -h
+cargo
+cargo --list
+shellls
+shells
+bshell 
+ls
+man .bash_profile
+man bshell 
+ls -f
+ls -f | where type == Dir
+ls -f | where type == Dir -
+ls -f | where type == Dir - -f
+ls -f | where type == Dir 
+ls -f | where type == dir
+cd downloads/
+ls
+ls -f | where type == dir
+ls -f | where type == dir -f
+ls -f | where type == file
+cd ~/.config/
+ls -f | where type == file
+ls -f | where type == dir
+ls -f | where type == file
+la
+ls la
+ls -a
+cargo
+cargo --help
+plugin list 
+ls
+ls | where type == dir
+ls | where type == files
+ls | where type == file
+ls
+cd yazi/
+ls
+open init.lua
+bat init.lua
+ls
+cd ~
+ls
+config env 
+ls
+cd .config/
+ls
+cd ..
+ls
+ls -la
+$nu.env-path
+config env 
+ll
+la
+ll
+config nu 
+cd .config
+cd ..
+cd ~/.config/nushell/
+cd ~
+cd .gnupg/
+cd ..
+cd nu
+z config
+z .config/
+source ~/.zoxide.nu
+ls
+cd ~\.config
+cd ~/.config
+cd nushell/
+cd /
+cd ~/.config/nushell/
+cd ..
+cd ~
+$nu.config-path
+touch $nu.config-path
+ls -s ~/.config/nushell/zoxide.nu .zoxide.nu
+ln -s ~/.config/nushell/zoxide.nu .zoxide.nu
+ls -la
+la
+ls
+cd /etc/
+$nu.config-path
+ls
+cd ~/.config/nushell/
+cd 
+cd nushell/
+cd nushell
+z .config/
+z nushell/
+cd /
+$nu.config-path
+$nu.env-path
+cd ~/.config/nushell/
+cd /
+cd ~
+cd nushell
+cd .config/
+cd ~
+z .config/
+ls
+cd zsh/
+ls
+cd ~
+$nu.env-path
+cat $nu.env-path
+cat $nu.config-path
+ls | fzf
+eza
+eza | fzf
+ls
+/.config
+cd .config/
+git log --pretty=%h»¦«%aN»¦«%s»¦«%aD | lines
+git log --pretty=%h»¦«%aN»¦«%s»¦«%aD | lines | split column "»¦«" sha1 committer desc merged_at | first 10
+git log --pretty="%h|%s|%aN|%aE|%aD" -n 25
+git log --pretty=%h»¦«%s»¦«%aN»¦«%aE»¦«%aD -n 5
+version 
+z .config/
+z
+z .config/nushell/
+z
+ls
+la
+nu
+ls
+systemctl 
+systemctl list-units --type=service --all --no-pager | from systemctl
+systemctl list-units --type=service --all --no-pager 
+systemctl list-units --type=service --all --no-pager | bat
+systemctl list-units --type=service --all --no-pager | bat --color
+systemctl list-units --type=service --all --no-pager
+systemctl list-units --type=service --state=active --no-pager | from systemctl | where STATE == "active"
+systemctl list-units --type=service --state=active --no-pager | where STATE == "active"
+systemctl list-units --type=service --all --no-pager | from systemctl
+systemctl list-units --type=service --all --no-pager --output=json | from json<\n>
+systemctl list-units --type=service --all --no-pager --output=json | from json | table -w 50<\n>
+systemctl list-units --type=service --no-pager | lines | skip 1 | split column " " -c UNIT STATE | table -w 40<\n>
+systemctl list-units --type=service --all --output=json | from json<\n>
+systemctl list-units --type=service --no-pager | lines | skip 1 | split column " " -c UNIT STATE
+systemctl list-units --type=service --all --output=json | from json<\n>
+systemctl list-units --type=service --all 
+systemctl list-units --type=service --all --output=json | from json<\n>
+systemctl list-units --type=service --all 
